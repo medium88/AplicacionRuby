@@ -5,6 +5,11 @@ class StudentsController < ApplicationController
         @students = Student.all
         erb :index
     end
+
+    get '/new' do 
+        erb :new
+    end
+
     #GET /students/:id
     get "/:id" do
         id = params[:id].to_i
@@ -12,4 +17,18 @@ class StudentsController < ApplicationController
         erb :show
     end
 
+    post '/' do
+      student = Student.new(student_params)
+        student.save
+
+        redirect '/students'
+    end
+
+    def student_params
+      params[:student]
+    end
+
+   
+
 end
+
