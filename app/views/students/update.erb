@@ -1,0 +1,8 @@
+<ul>
+<form action='/students' method="post">
+    <input type="text" value="<%= @student.nombre %>" name="student[nombre]">
+    <input type="text" value="<%= @student.correo %>" name="student[correo]">
+    <input type="text" value="<%= @student.programa %>" name="student[programa]">
+    <input type="text" value="<%= @student.fecha %>" name="student[fecha]">
+</ul>  
+<input type="submit" value="Actualizar">

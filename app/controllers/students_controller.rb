@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
         @students = Student.all #llamamos al metodo all de la clase students
         erb :index
     end
+    
     #get/student/new
     get '/new' do 
         erb :new
@@ -12,17 +13,39 @@ class StudentsController < ApplicationController
 
     #GET /students/:id
     get "/:id" do
-        id = params[:id].to_i
-        @student = Student.all[id]
+        id = params[:id]
+        @student = Student.find(id)
         erb :show
     end
+   
     #recibe los datos del formulario
     post '/' do
-      student = Student.new(student_params)
-        student.save #metodo que guarda los registros
+        Student.create(student_params)
+        
 
         redirect '/students'
     end
+
+    delete '/:id' do
+        Student.destroy(params[:id])
+
+        redirect '/students'
+    end
+
+    get '/update' do
+       
+        erb :update
+    end
+
+    get '/' do
+        Student.update(params)
+        
+
+        redirect '/students'
+    end
+
+
+
     #devuelve los parametros del new.erb
     def student_params
       params[:student]

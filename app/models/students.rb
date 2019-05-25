@@ -1,7 +1,5 @@
 class Student < ActiveRecord::Base
-  
-    
-    def self.table_name
-        'students'
+    def self.say_hi
+        puts "hiiiiiiii"
     end
 end

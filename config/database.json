@@ -1,0 +1,8 @@
+{
+    "adapter": "postgresql",
+    "host": "localhost",
+    "username": "postgres",
+    "password": "madridmedo88",
+    "port": "9292",
+    "database": "web_app"
+}
